@@ -6,3 +6,7 @@ dist/
 # OS junk
 .DS_Store
 Thumbs.db
+
+# Don't push dependencies to GitHub
+node_modules/
+

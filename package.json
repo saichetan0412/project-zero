@@ -1,0 +1,24 @@
+{
+  "name": "project_zero",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/saichetan0412/project-zero.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/saichetan0412/project-zero/issues"
+  },
+  "homepage": "https://github.com/saichetan0412/project-zero#readme",
+  "description": "",
+  "dependencies": {
+    "gasp": "^0.0.2",
+    "swiper": "^11.2.10"
+  }
+}
