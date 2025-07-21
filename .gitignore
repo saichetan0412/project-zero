@@ -1,0 +1,8 @@
+# Node stuff (if used later)
+node_modules/
+dist/
+.env
+
+# OS junk
+.DS_Store
+Thumbs.db
