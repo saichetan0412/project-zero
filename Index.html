@@ -4,21 +4,115 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Project Zero | Nexus</title>
+  <!-- Main Stylesheet -->
   <link rel="stylesheet" href="css/styles.css" />
-  <!-- GSAP CDN -->
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Audiowide&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+  <!-- GSAP Animation Library -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
-  <!-- Optional: ScrollTrigger -->
+  <!-- GSAP ScrollTrigger (optional, remove if unused) -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+  <!-- Three.js for 3D Logo -->
+  <script src="https://cdn.jsdelivr.net/npm/three@0.155.0/build/three.min.js"></script>
 </head>
 
 <body>
+  <!-- ===========================
+       Header & Navigation
+  ============================ -->
   <header class="landing-header">
+    <!-- Main Navigation -->
+    <nav class="main-nav">
+      <ul>
+        <li><a href="#">Home</a></li>
+        <li><a href="#">Categories</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#">Contact</a></li>
+      </ul>
+    </nav>
+    <!-- Centered 3D Logo & Project Name Dialogue -->
     <a href="index.html" class="nexus-logo-link">
-        <img src="assets/nexus.png" alt="Nexus Logo" class="nexus-logo" />
-    </a> 
+      <div id="three-container"></div>
+      <div class="logo-dialogue" id="logoDialogue">PROJECT ZERO</div>
+    </a>
+    <!-- Spacer for layout balance -->
+    <div class="header-spacer"></div>
+    <!-- Right-side Actions: Donate & Search -->
+    <div class="header-actions">
+      <button class="donate-btn">Donate</button>
+      <button class="search-btn" aria-label="Search">
+        <!-- Search Icon SVG -->
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#0ff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="11" cy="11" r="8"/>
+          <line x1="21" y1="21" x2="16.65" y2="16.65"/>
+        </svg>
+      </button>
+    </div>
   </header>
 
-  <script src="js/gsap.min.js"></script>
+  <!-- ===========================
+       Main Content
+  ============================ -->
+  <main>
+    <section class="hero-section">
+      <!-- Watermark background -->
+      <div class="watermark-bg"></div>
+      <div class="hero-overlay"></div>
+      <div class="hero-content">
+        <h2 class="hero-subtitle">"Explore the Arsenal of Nations."</h2>
+        <h1 class="hero-title">"Project Zero: Tactical. Technical. Total."</h1>
+        <a href="#about" class="hero-btn">
+          DISCOVER MORE
+          <span class="arrow">→</span>
+        </a>
+        <div class="hero-slides">
+          <div class="slide active" style="background-image: url('../assets/images/Homepage/slide1.jpg');">
+          <!-- Optional: Slide-specific overlay/text -->
+        </div>
+        <div class="slide" style="background-image: url('../assets/images/Homepage/slide2.jpg');"></div>
+        <div class="slide" style="background-image: url('../assets/images/Homepage/slide3.jpg');"></div>
+        <div class="slide-controls">
+          <div class="dots">
+            <span class="dot active"></span>
+            <span class="dot"></span>
+            <span class="dot"></span>
+          </div>
+          <button class="slide-pause" aria-label="Pause/Play">
+            <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
+              <polygon class="pause-icon" points="10,8 14,8 14,24 10,24" fill="#fff"/>
+              <polygon class="pause-icon" points="18,8 22,8 22,24 18,24" fill="#fff"/>
+              <polygon class="play-icon" points="12,8 24,16 12,24" fill="#fff" style="display:none"/>
+            </svg>
+          </button>
+        </div>
+      </div>
+    </section>
+    <!-- Other main content --> 
+  </main>
+
+  <!-- ===========================
+       Search Overlay
+  ============================ -->
+  <div class="search-overlay" id="searchOverlay">
+    <div class="search-overlay-content">
+      <form id="searchForm" autocomplete="off">
+        <input
+          type="text"
+          class="search-input"
+          placeholder="Search on the website"
+          id="searchInput"
+        />
+        <button type="submit" class="search-submit">SEARCH</button>
+      </form>
+      <div class="search-results-message" id="searchResultsMessage"></div>
+    </div>
+  </div>
+
+  <!-- ===========================
+       Scripts
+  ============================ -->
+  <!-- Main JS -->
   <script src="js/main.js"></script>
 </body>
 </html>
