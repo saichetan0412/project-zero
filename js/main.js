@@ -256,7 +256,24 @@ let paused = false;
 
 function showSlide(idx) {
   slides.forEach((slide, i) => {
-    slide.classList.toggle('active', i === idx);
+    if (i === idx) {
+      gsap.fromTo(
+        slide,
+        { opacity: 0, x: 80, scale: 1.05 },
+        { opacity: 1, x: 0, scale: 1, duration: 1.1, ease: "power4.out", overwrite: "auto" }
+      );
+      slide.classList.add('active');
+    } else if (slide.classList.contains('active')) {
+      gsap.to(
+        slide,
+        { opacity: 0, x: -80, scale: 0.98, duration: 0.9, ease: "power4.in", overwrite: "auto",
+          onComplete: () => slide.classList.remove('active')
+        }
+      );
+    } else {
+      slide.style.opacity = 0;
+      slide.classList.remove('active');
+    }
     dots[i].classList.toggle('active', i === idx);
   });
   currentSlide = idx;
@@ -267,7 +284,7 @@ function nextSlide() {
 }
 
 function startSlides() {
-  slideInterval = setInterval(nextSlide, 4000);
+  slideInterval = setInterval(nextSlide, 15000);
 }
 
 function stopSlides() {
@@ -297,3 +314,10 @@ pauseBtn.addEventListener('click', () => {
 // Initialize
 showSlide(0);
 startSlides();
+
+// Fade in punchline/tagline from the left on page load
+gsap.fromTo(
+  ".hero-subtitle, .hero-title",
+  { opacity: 0, x: -60 },
+  { opacity: 1, x: 0, duration: 1.2, ease: "power2.out", stagger: 0.3 }
+);
